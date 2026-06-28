@@ -2,6 +2,58 @@
   "use strict";
 
   /* ================================================================
+     Helpers
+  ================================================================ */
+
+  function makeIcon(type) {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("class", "badge-icon");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("width", "11");
+    svg.setAttribute("height", "11");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("stroke", "currentColor");
+    svg.setAttribute("stroke-width", "2");
+    svg.setAttribute("stroke-linecap", "round");
+    svg.setAttribute("stroke-linejoin", "round");
+
+    if (type === "calendar") {
+      var rect = document.createElementNS(ns, "rect");
+      rect.setAttribute("x", "3"); rect.setAttribute("y", "4");
+      rect.setAttribute("width", "18"); rect.setAttribute("height", "18");
+      rect.setAttribute("rx", "2"); rect.setAttribute("ry", "2");
+      svg.appendChild(rect);
+
+      var line1 = document.createElementNS(ns, "line");
+      line1.setAttribute("x1", "16"); line1.setAttribute("y1", "2");
+      line1.setAttribute("x2", "16"); line1.setAttribute("y2", "6");
+      svg.appendChild(line1);
+
+      var line2 = document.createElementNS(ns, "line");
+      line2.setAttribute("x1", "8"); line2.setAttribute("y1", "2");
+      line2.setAttribute("x2", "8"); line2.setAttribute("y2", "6");
+      svg.appendChild(line2);
+
+      var line3 = document.createElementNS(ns, "line");
+      line3.setAttribute("x1", "3"); line3.setAttribute("y1", "10");
+      line3.setAttribute("x2", "21"); line3.setAttribute("y2", "10");
+      svg.appendChild(line3);
+    } else {
+      var circle = document.createElementNS(ns, "circle");
+      circle.setAttribute("cx", "12"); circle.setAttribute("cy", "12");
+      circle.setAttribute("r", "10");
+      svg.appendChild(circle);
+
+      var polyline = document.createElementNS(ns, "polyline");
+      polyline.setAttribute("points", "12 6 12 12 16 14");
+      svg.appendChild(polyline);
+    }
+
+    return svg;
+  }
+
+  /* ================================================================
      State
   ================================================================ */
 
@@ -122,14 +174,16 @@
         if (hasDate) {
           var dateEl = document.createElement("span");
           dateEl.className = "task-list__badge task-list__badge--date";
-          dateEl.textContent = "\uD83D\uDCC5 " + formatDate(task.dueDate);
+          dateEl.appendChild(makeIcon("calendar"));
+          dateEl.appendChild(document.createTextNode(formatDate(task.dueDate)));
           meta.appendChild(dateEl);
         }
 
         if (hasTime) {
           var timeEl = document.createElement("span");
           timeEl.className = "task-list__badge task-list__badge--time";
-          timeEl.textContent = "\uD83D\uDD52 " + formatTime(task.dueTime);
+          timeEl.appendChild(makeIcon("clock"));
+          timeEl.appendChild(document.createTextNode(formatTime(task.dueTime)));
           meta.appendChild(timeEl);
         }
 
