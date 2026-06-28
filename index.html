@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2563eb" />
   <title>Task Manager</title>
+
+  <!-- Inline SVG favicon — clipboard with checkmark -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='9' width='20' height='20' rx='3' fill='%232563eb'/%3E%3Crect x='11' y='6' width='10' height='5' rx='2' fill='%232563eb'/%3E%3Crect x='13' y='7' width='6' height='2.5' rx='1' fill='%23fff' opacity='0.8'/%3E%3Cpath d='M11 20l4 4 7-7' stroke='%23fff' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="design-tokens.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -17,19 +25,30 @@
 
       <!-- Header -->
       <header class="card__header">
-        <h1 class="card__title">Task Manager</h1>
+        <div class="card__title-row">
+          <svg class="card__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="6" y="9" width="20" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="6" y="9" width="20" height="20" rx="3" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+            <rect x="11" y="6" width="10" height="5" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <rect x="11" y="6" width="10" height="5" rx="2" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+            <rect x="13" y="7" width="6" height="2.5" rx="1" fill="rgba(255,255,255,0.5)"/>
+            <path d="M11 20l4 4 7-7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1 class="card__title">Task Manager</h1>
+        </div>
+
         <div class="stats" aria-label="Task statistics">
-          <div class="stats__item">
-            <span class="stats__value stats__value--total" id="statTotal">0</span>
-            <span class="stats__label">Total</span>
+          <div class="stat-tile">
+            <span class="stat-tile__value" id="statTotal">0</span>
+            <span class="stat-tile__label">Total</span>
           </div>
-          <div class="stats__item">
-            <span class="stats__value stats__value--done" id="statDone">0</span>
-            <span class="stats__label">Done</span>
+          <div class="stat-tile stat-tile--done">
+            <span class="stat-tile__value" id="statDone">0</span>
+            <span class="stat-tile__label">Done</span>
           </div>
-          <div class="stats__item">
-            <span class="stats__value stats__value--remaining" id="statRemaining">0</span>
-            <span class="stats__label">Remaining</span>
+          <div class="stat-tile stat-tile--remaining">
+            <span class="stat-tile__value" id="statRemaining">0</span>
+            <span class="stat-tile__label">Remaining</span>
           </div>
         </div>
       </header>
@@ -37,37 +56,67 @@
       <!-- Add task form -->
       <form class="add-form" id="addForm" autocomplete="off">
         <label for="taskInput" class="visually-hidden">New task</label>
-        <input
-          class="add-form__input"
-          id="taskInput"
-          type="text"
-          placeholder="Enter a new task..."
-          required
-        />
-        <button class="add-form__btn" type="submit">Add Task</button>
+        <div class="add-form__row">
+          <input
+            class="add-form__input"
+            id="taskInput"
+            type="text"
+            placeholder="Enter a new task..."
+            required
+          />
+          <button class="add-form__btn" type="submit">
+            <span class="add-form__btn-text">Add Task</span>
+          </button>
+        </div>
+
+        <!-- Optional extras toggle -->
+        <div class="add-form__extras" id="formExtras">
+          <div class="add-form__row add-form__row--half">
+            <div class="add-form__field">
+              <label class="add-form__label" for="taskDate">Due date</label>
+              <input class="add-form__input add-form__input--meta" id="taskDate" type="date" />
+            </div>
+            <div class="add-form__field">
+              <label class="add-form__label" for="taskTime">Due time</label>
+              <input class="add-form__input add-form__input--meta" id="taskTime" type="time" />
+            </div>
+          </div>
+          <div class="add-form__field">
+            <label class="add-form__label" for="taskNote">Note</label>
+            <textarea
+              class="add-form__note"
+              id="taskNote"
+              placeholder="Add a short note (optional)"
+              rows="2"
+            ></textarea>
+          </div>
+        </div>
       </form>
 
       <!-- Filter bar -->
       <div class="filter-bar" role="group" aria-label="Filter tasks">
         <div class="filter-bar__group">
-          <button class="filter-bar__btn is-active" data-filter="all">All</button>
-          <button class="filter-bar__btn" data-filter="active">Active</button>
-          <button class="filter-bar__btn" data-filter="completed">Completed</button>
+          <button class="filter-btn is-active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
         </div>
-        <button class="filter-bar__clear" id="clearCompleted">Clear Completed</button>
+        <div class="filter-bar__actions">
+          <button class="filter-bar__clear" id="clearCompleted">Clear Completed</button>
+          <button class="filter-bar__clear filter-bar__clear--all" id="clearAll">Clear All</button>
+        </div>
       </div>
 
       <!-- Empty state -->
       <div class="empty-state" id="emptyState">
         <div class="empty-state__icon">
-          <svg class="empty-state__svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-            <rect x="10" y="20" width="60" height="50" rx="6" stroke="currentColor" stroke-width="3" fill="none" />
-            <line x1="25" y1="35" x2="55" y2="35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="25" y1="45" x2="45" y2="45" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="25" y1="55" x2="50" y2="55" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-            <circle cx="60" cy="20" r="12" fill="var(--clr-primary-container)" stroke="var(--clr-primary)" stroke-width="2.5" />
-            <line x1="56" y1="20" x2="64" y2="20" stroke="var(--clr-primary)" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="60" y1="16" x2="60" y2="24" stroke="var(--clr-primary)" stroke-width="2.5" stroke-linecap="round" />
+          <svg class="empty-state__svg" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+            <rect x="16" y="26" width="64" height="52" rx="8" stroke="currentColor" stroke-width="3" fill="none" />
+            <line x1="32" y1="42" x2="64" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="32" y1="52" x2="56" y2="52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            <line x1="32" y1="62" x2="50" y2="62" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="70" cy="24" r="14" fill="var(--clr-primary-container)" stroke="var(--clr-primary)" stroke-width="3" />
+            <line x1="65" y1="24" x2="75" y2="24" stroke="var(--clr-primary)" stroke-width="3" stroke-linecap="round" />
+            <line x1="70" y1="19" x2="70" y2="29" stroke="var(--clr-primary)" stroke-width="3" stroke-linecap="round" />
           </svg>
         </div>
         <p class="empty-state__text" id="emptyMessage">No tasks yet. Add your first task!</p>
