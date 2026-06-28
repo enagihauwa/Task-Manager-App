@@ -122,14 +122,14 @@
         if (hasDate) {
           var dateEl = document.createElement("span");
           dateEl.className = "task-list__badge task-list__badge--date";
-          dateEl.textContent = formatDate(task.dueDate);
+          dateEl.textContent = "\uD83D\uDCC5 " + formatDate(task.dueDate);
           meta.appendChild(dateEl);
         }
 
         if (hasTime) {
           var timeEl = document.createElement("span");
           timeEl.className = "task-list__badge task-list__badge--time";
-          timeEl.textContent = formatTime(task.dueTime);
+          timeEl.textContent = "\uD83D\uDD52 " + formatTime(task.dueTime);
           meta.appendChild(timeEl);
         }
 

@@ -740,26 +740,14 @@ body {
   background-color: var(--clr-primary-container);
 }
 
-.task-list__badge--date::before {
-  content: "\01F4C5";
-  font-size: 11px;
-  opacity: 0.8;
-  display: inline-block;
-  margin-right: 2px;
-}
+
 
 .task-list__badge--time {
   color: var(--clr-on-secondary-container);
   background-color: var(--clr-seconadry-container);
 }
 
-.task-list__badge--time::before {
-  content: "\01F552";
-  font-size: 11px;
-  opacity: 0.8;
-  display: inline-block;
-  margin-right: 2px;
-}
+
 
 .task-list__note {
   position: relative;
