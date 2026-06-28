@@ -362,6 +362,15 @@ body {
   text-transform: uppercase;
 }
 
+.emoji-icon {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiOne Color", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 .add-form__note {
   width: 100%;
   padding: var(--spacing-sm);
@@ -735,9 +744,11 @@ body {
   white-space: nowrap;
 }
 
-.badge-icon {
-  display: block;
-  flex-shrink: 0;
+.badge-emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiOne Color", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  display: inline-block;
 }
 
 .task-list__badge--date {
