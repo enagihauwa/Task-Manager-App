@@ -1,0 +1,335 @@
+/**
+ * design-tokens.css
+ * Generated 2026-06-28 17:53:57 from design-tokens.tokens.json
+ * Do not edit by hand — run `node build-tokens.js` to regenerate.
+ */
+
+:root {
+
+
+/* ────────────────────────────────────────────────────────────
+   PRIMITIVE COLOURS — Do NOT reference these directly in your components.
+   ──────────────────────────────────────────────────────────── */
+
+/* These are the foundational palette values. They exist solely so the */
+/* semantic colour-role tokens (see next section) can point to them. */
+/* Always use the role tokens in your UI code.
+ */
+/* · key colours group */
+  --clr-key-colours-group-primary-key-colour: rgba(37, 99, 235, 1.000);
+  --clr-key-colours-group-secondary-key-colour: rgba(87, 135, 240, 1.000);
+  --clr-key-colours-group-tertiary-key-colour: rgba(18, 75, 199, 1.000);
+  --clr-key-colours-group-neutral-key-colour: rgba(23, 24, 26, 1.000);
+  --clr-key-colours-group-neutral-variant-key-colour: rgba(56, 57, 58, 1.000);
+  --clr-key-colours-group-error-key-colour: rgba(230, 47, 47, 1.000);
+/* · primary colour palette */
+  --clr-primary-colour-palette-primary0: rgba(0, 0, 0, 1.000);
+  --clr-primary-colour-palette-primary10: rgba(4, 18, 47, 1.000);
+  --clr-primary-colour-palette-primary20: rgba(9, 35, 93, 1.000);
+  --clr-primary-colour-palette-primary30: rgba(13, 53, 140, 1.000);
+  --clr-primary-colour-palette-primary40: rgba(13, 53, 140, 1.000);
+  --clr-primary-colour-palette-primary50: rgba(21, 88, 234, 1.000);
+  --clr-primary-colour-palette-primary60: rgba(68, 121, 238, 1.000);
+  --clr-primary-colour-palette-primary70: rgba(115, 155, 242, 1.000);
+  --clr-primary-colour-palette-primary80: rgba(162, 188, 246, 1.000);
+  --clr-primary-colour-palette-primary90: rgba(208, 222, 251, 1.000);
+  --clr-primary-colour-palette-primary95: rgba(232, 238, 253, 1.000);
+  --clr-primary-colour-palette-primary98: rgba(246, 248, 254, 1.000);
+  --clr-primary-colour-palette-primary99: rgba(250, 252, 255, 1.000);
+  --clr-primary-colour-palette-primary100: rgba(255, 255, 255, 1.000);
+/* · secondary colour palette */
+  --clr-secondary-colour-palette-secondary0: rgba(0, 0, 0, 1.000);
+  --clr-secondary-colour-palette-secondary10: rgba(4, 18, 47, 1.000);
+  --clr-secondary-colour-palette-secondary20: rgba(8, 35, 94, 1.000);
+  --clr-secondary-colour-palette-secondary30: rgba(13, 53, 140, 1.000);
+  --clr-secondary-colour-palette-secondary40: rgba(17, 70, 187, 1.000);
+  --clr-secondary-colour-palette-secondary50: rgba(21, 88, 234, 1.000);
+  --clr-secondary-colour-palette-secondary60: rgba(68, 121, 238, 1.000);
+  --clr-secondary-colour-palette-secondary70: rgba(124, 161, 243, 1.000);
+  --clr-secondary-colour-palette-secondary80: rgba(175, 198, 248, 1.000);
+  --clr-secondary-colour-palette-secondary90: rgba(208, 222, 251, 1.000);
+  --clr-secondary-colour-palette-secondary95: rgba(227, 235, 252, 1.000);
+  --clr-secondary-colour-palette-secondary98: rgba(241, 245, 254, 1.000);
+  --clr-secondary-colour-palette-secondary99: rgba(250, 252, 255, 1.000);
+  --clr-secondary-colour-palette-secondary100: rgba(255, 255, 255, 1.000);
+/* · tertiary colour palette */
+  --clr-tertiary-colour-palette-tertiary0: rgba(18, 75, 199, 1.000);
+  --clr-tertiary-colour-palette-tertiary10: rgba(4, 18, 47, 1.000);
+  --clr-tertiary-colour-palette-tertiary20: rgba(8, 35, 94, 1.000);
+  --clr-tertiary-colour-palette-tertiary30: rgba(15, 62, 164, 1.000);
+  --clr-tertiary-colour-palette-tertiary40: rgba(17, 71, 187, 1.000);
+  --clr-tertiary-colour-palette-tertiary50: rgba(21, 88, 234, 1.000);
+  --clr-tertiary-colour-palette-tertiary60: rgba(68, 122, 238, 1.000);
+  --clr-tertiary-colour-palette-tertiary70: rgba(124, 162, 243, 1.000);
+  --clr-tertiary-colour-palette-tertiary80: rgba(161, 188, 247, 1.000);
+  --clr-tertiary-colour-palette-tertiary90: rgba(208, 222, 251, 1.000);
+  --clr-tertiary-colour-palette-tertiary95: rgba(232, 238, 253, 1.000);
+  --clr-tertiary-colour-palette-tertiary98: rgba(246, 248, 254, 1.000);
+  --clr-tertiary-colour-palette-tertiary99: rgba(250, 252, 255, 1.000);
+  --clr-tertiary-colour-palette-tertiary100: rgba(255, 255, 255, 1.000);
+/* · neutral colour palette */
+  --clr-neutral-colour-palette-neutral0: rgba(23, 24, 26, 1.000);
+  --clr-neutral-colour-palette-neutral10: rgba(24, 25, 27, 1.000);
+  --clr-neutral-colour-palette-neutral20: rgba(47, 50, 55, 1.000);
+  --clr-neutral-colour-palette-neutral30: rgba(71, 74, 82, 1.000);
+  --clr-neutral-colour-palette-neutral40: rgba(94, 99, 110, 1.000);
+  --clr-neutral-colour-palette-neutral50: rgba(118, 124, 137, 1.000);
+  --clr-neutral-colour-palette-neutral60: rgba(145, 150, 161, 1.000);
+  --clr-neutral-colour-palette-neutral70: rgba(173, 176, 184, 1.000);
+  --clr-neutral-colour-palette-neutral80: rgba(200, 203, 208, 1.000);
+  --clr-neutral-colour-palette-neutral90: rgba(228, 229, 231, 1.000);
+  --clr-neutral-colour-palette-neutral95: rgba(241, 242, 243, 1.000);
+  --clr-neutral-colour-palette-neutral98: rgba(250, 250, 250, 1.000);
+  --clr-neutral-colour-palette-neutral99: rgba(252, 252, 253, 1.000);
+  --clr-neutral-colour-palette-neutral100: rgba(255, 255, 255, 1.000);
+/* · neutral  variant colour palette */
+  --clr-neutral-variant-colour-palette-neutral-variant0: rgba(0, 0, 0, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant10: rgba(25, 26, 26, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant20: rgba(50, 51, 52, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant30: rgba(75, 77, 78, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant40: rgba(100, 102, 104, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant50: rgba(125, 128, 130, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant60: rgba(151, 153, 155, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant70: rgba(177, 178, 180, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant80: rgba(203, 204, 205, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant90: rgba(229, 229, 230, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant95: rgba(242, 242, 242, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant98: rgba(229, 229, 230, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant99: rgba(250, 250, 250, 1.000);
+  --clr-neutral-variant-colour-palette-neutral-variant100: rgba(255, 255, 255, 1.000);
+/* · error colour palette */
+  --clr-error-colour-palette-error-colour-palette0: rgba(0, 0, 0, 1.000);
+  --clr-error-colour-palette-error-colour-palette10: rgba(31, 4, 4, 1.000);
+  --clr-error-colour-palette-error-colour-palette20: rgba(51, 6, 6, 1.000);
+  --clr-error-colour-palette-error-colour-palette30: rgba(76, 9, 9, 1.000);
+  --clr-error-colour-palette-error-colour-palette40: rgba(102, 12, 12, 1.000);
+  --clr-error-colour-palette-error-colour-palette50: rgba(128, 15, 15, 1.000);
+  --clr-error-colour-palette-error-colour-palette60: rgba(153, 48, 48, 1.000);
+  --clr-error-colour-palette-error-colour-palette70: rgba(178, 95, 95, 1.000);
+  --clr-error-colour-palette-error-colour-palette80: rgba(204, 137, 137, 1.000);
+  --clr-error-colour-palette-error-colour-palette90: rgba(229, 193, 193, 1.000);
+  --clr-error-colour-palette-error-colour-palette95: rgba(242, 223, 223, 1.000);
+  --clr-error-colour-palette-error-colour-palette98: rgba(250, 242, 242, 1.000);
+  --clr-error-colour-palette-error-colour-palette99: rgba(252, 248, 248, 1.000);
+  --clr-error-colour-palette-error-colour-palette100: rgba(255, 255, 255, 1.000);
+
+/* ────────────────────────────────────────────────────────────
+   COLOUR ROLES — The semantic colour tokens for use in UI components.
+   ──────────────────────────────────────────────────────────── */
+
+/* Use these — never the primitive colours above — in your styles.
+ */
+  --clr-primary: rgba(37, 99, 235, 1.000);
+  --clr-on-primary: rgba(255, 255, 255, 1.000);
+  --clr-primary-container: rgba(208, 222, 251, 1.000);
+  --clr-on-primary-container: rgba(13, 53, 140, 1.000);
+  --clr-secondary: rgba(17, 70, 187, 1.000);
+  --clr-on-secondary: rgba(255, 255, 255, 1.000);
+  --clr-seconadry-container: rgba(208, 222, 251, 1.000);
+  --clr-on-secondary-container: rgba(13, 53, 140, 1.000);
+  --clr-tertiary: rgba(17, 71, 187, 1.000);
+  --clr-on-tertiary: rgba(255, 255, 255, 1.000);
+  --clr-tertiary-container: rgba(208, 222, 251, 1.000);
+  --clr-on-tertiary-container: rgba(15, 62, 164, 1.000);
+  --clr-error: rgba(102, 12, 12, 1.000);
+  --clr-on-error: rgba(255, 255, 255, 1.000);
+  --clr-error-container: rgba(229, 193, 193, 1.000);
+  --clr-on-error-container: rgba(76, 9, 9, 1.000);
+  --clr-surface: rgba(250, 250, 250, 1.000);
+  --clr-on-surface: rgba(23, 24, 26, 1.000);
+  --clr-surface-variant: rgba(229, 229, 230, 1.000);
+  --clr-on-surface-variant: rgba(75, 77, 78, 1.000);
+  --clr-surface-container-highest: rgba(228, 229, 231, 1.000);
+  --clr-surface-container-high: rgba(228, 229, 231, 1.000);
+  --clr-surface-container: rgba(241, 242, 243, 1.000);
+  --clr-surface-container-low: rgba(250, 250, 250, 1.000);
+  --clr-surface-container-lowest: rgba(255, 255, 255, 1.000);
+  --clr-inverse-surface: rgba(47, 50, 55, 1.000);
+  --clr-inverse-on-surface: rgba(241, 242, 243, 1.000);
+  --clr-surface-tint: rgba(13, 53, 140, 1.000);
+  --clr-outline: rgba(125, 128, 130, 1.000);
+  --clr-outline-variant: rgba(203, 204, 205, 1.000);
+  --clr-primary-fixed: rgba(208, 222, 251, 1.000);
+  --clr-on-primary-fixed: rgba(4, 18, 47, 1.000);
+  --clr-primary-fixed-dim: rgba(162, 188, 246, 1.000);
+  --clr-on-primary-variant: rgba(13, 53, 140, 1.000);
+  --clr-inverse-primary: rgba(162, 188, 246, 1.000);
+  --clr-secondary-fixed: rgba(208, 222, 251, 1.000);
+  --clr-on-secondary-fixed: rgba(4, 18, 47, 1.000);
+  --clr-secondary-fixed-dim: rgba(175, 198, 248, 1.000);
+  --clr-on-secondary-dim: rgba(13, 53, 140, 1.000);
+  --clr-tertiary-fixed: rgba(208, 222, 251, 1.000);
+  --clr-on-tertiary-fixed: rgba(4, 18, 47, 1.000);
+  --clr-tertiary-fixed-dim: rgba(161, 188, 247, 1.000);
+  --clr-on-tertiary-fixed-variant: rgba(15, 62, 164, 1.000);
+  --clr-background: rgba(250, 250, 250, 1.000);
+  --clr-on-background: rgba(24, 25, 27, 1.000);
+  --clr-surface-bright: rgba(250, 250, 250, 1.000);
+  --clr-surface-dim: rgba(228, 229, 231, 1.000);
+  --clr-scrim: rgba(23, 24, 26, 1.000);
+  --clr-shadow: rgba(23, 24, 26, 1.000);
+
+/* ────────────────────────────────────────────────────────────
+   SPACING — Margin, padding, gap, inset tokens.
+   ──────────────────────────────────────────────────────────── */
+
+  --spacing-none: 0;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+
+/* ────────────────────────────────────────────────────────────
+   TYPOGRAPHY — Font size, weight, line-height, letter-spacing, etc.
+   ──────────────────────────────────────────────────────────── */
+
+/* Each style is prefixed with its category (display, headline, title, */
+/* body, label) and size (large, medium, small).
+ */
+/* · display large */
+  --typography-display-large-font-size: 64px;
+  --typography-display-large-text-decoration: none;
+  --typography-display-large-font-family: "DM Sans";
+  --typography-display-large-font-weight: 500;
+  --typography-display-large-font-style: normal;
+  --typography-display-large-letter-spacing: -4px;
+  --typography-display-large-line-height: 96px;
+  --typography-display-large-text-case: none;
+/* · display medium */
+  --typography-display-medium-font-size: 50px;
+  --typography-display-medium-text-decoration: none;
+  --typography-display-medium-font-family: "DM Sans";
+  --typography-display-medium-font-weight: 400;
+  --typography-display-medium-font-style: normal;
+  --typography-display-medium-letter-spacing: -3px;
+  --typography-display-medium-line-height: 75px;
+  --typography-display-medium-text-case: none;
+/* · display small */
+  --typography-display-small-font-size: 40px;
+  --typography-display-small-text-decoration: none;
+  --typography-display-small-font-family: "DM Sans";
+  --typography-display-small-font-weight: 400;
+  --typography-display-small-font-style: normal;
+  --typography-display-small-letter-spacing: -2px;
+  --typography-display-small-line-height: 60px;
+  --typography-display-small-text-case: none;
+/* · headline large */
+  --typography-headline-large-font-size: 32px;
+  --typography-headline-large-text-decoration: none;
+  --typography-headline-large-font-family: "DM Sans";
+  --typography-headline-large-font-weight: 500;
+  --typography-headline-large-font-style: normal;
+  --typography-headline-large-letter-spacing: -1.55px;
+  --typography-headline-large-line-height: 48px;
+  --typography-headline-large-text-case: none;
+/* · headline medium */
+  --typography-headline-medium-font-size: 28px;
+  --typography-headline-medium-text-decoration: none;
+  --typography-headline-medium-font-family: "DM Sans";
+  --typography-headline-medium-font-weight: 500;
+  --typography-headline-medium-font-style: normal;
+  --typography-headline-medium-letter-spacing: -1px;
+  --typography-headline-medium-line-height: 42px;
+  --typography-headline-medium-text-case: none;
+/* · headline small */
+  --typography-headline-small-font-size: 24px;
+  --typography-headline-small-text-decoration: none;
+  --typography-headline-small-font-family: "DM Sans";
+  --typography-headline-small-font-weight: 500;
+  --typography-headline-small-font-style: normal;
+  --typography-headline-small-letter-spacing: -1px;
+  --typography-headline-small-line-height: 36px;
+  --typography-headline-small-text-case: none;
+/* · title large */
+  --typography-title-large-font-size: 22px;
+  --typography-title-large-text-decoration: none;
+  --typography-title-large-font-family: "DM Sans";
+  --typography-title-large-font-weight: 500;
+  --typography-title-large-font-style: normal;
+  --typography-title-large-letter-spacing: -1px;
+  --typography-title-large-line-height: 33px;
+  --typography-title-large-text-case: none;
+/* · title medium */
+  --typography-title-medium-font-size: 16px;
+  --typography-title-medium-text-decoration: none;
+  --typography-title-medium-font-family: "DM Sans";
+  --typography-title-medium-font-weight: 600;
+  --typography-title-medium-font-style: normal;
+  --typography-title-medium-letter-spacing: -0.85px;
+  --typography-title-medium-line-height: 24px;
+  --typography-title-medium-text-case: none;
+/* · title small */
+  --typography-title-small-font-size: 14px;
+  --typography-title-small-text-decoration: none;
+  --typography-title-small-font-family: "DM Sans";
+  --typography-title-small-font-weight: 600;
+  --typography-title-small-font-style: normal;
+  --typography-title-small-letter-spacing: -0.75px;
+  --typography-title-small-line-height: 36px;
+  --typography-title-small-text-case: none;
+/* · body large */
+  --typography-body-large-font-size: 16px;
+  --typography-body-large-text-decoration: none;
+  --typography-body-large-font-family: "DM Sans";
+  --typography-body-large-font-weight: 500;
+  --typography-body-large-font-style: normal;
+  --typography-body-large-letter-spacing: -0.8px;
+  --typography-body-large-line-height: 24px;
+  --typography-body-large-text-case: none;
+/* · body medium */
+  --typography-body-medium-font-size: 14px;
+  --typography-body-medium-text-decoration: none;
+  --typography-body-medium-font-family: "DM Sans";
+  --typography-body-medium-font-weight: 500;
+  --typography-body-medium-font-style: normal;
+  --typography-body-medium-letter-spacing: -0.8px;
+  --typography-body-medium-line-height: 21px;
+  --typography-body-medium-text-case: none;
+/* · body small */
+  --typography-body-small-font-size: 12px;
+  --typography-body-small-text-decoration: none;
+  --typography-body-small-font-family: "DM Sans";
+  --typography-body-small-font-weight: 400;
+  --typography-body-small-font-style: normal;
+  --typography-body-small-letter-spacing: -0.75px;
+  --typography-body-small-line-height: 18px;
+  --typography-body-small-text-case: none;
+/* · label large */
+  --typography-label-large-font-size: 14px;
+  --typography-label-large-text-decoration: none;
+  --typography-label-large-font-family: "DM Sans";
+  --typography-label-large-font-weight: 500;
+  --typography-label-large-font-style: normal;
+  --typography-label-large-letter-spacing: -0.9px;
+  --typography-label-large-line-height: 21px;
+  --typography-label-large-text-case: none;
+/* · label medium */
+  --typography-label-medium-font-size: 12px;
+  --typography-label-medium-text-decoration: none;
+  --typography-label-medium-font-family: "DM Sans";
+  --typography-label-medium-font-weight: 500;
+  --typography-label-medium-font-style: normal;
+  --typography-label-medium-letter-spacing: -0.9px;
+  --typography-label-medium-line-height: 18px;
+  --typography-label-medium-text-case: none;
+/* · label small */
+  --typography-label-small-font-size: 11px;
+  --typography-label-small-text-decoration: none;
+  --typography-label-small-font-family: "DM Sans";
+  --typography-label-small-font-weight: 500;
+  --typography-label-small-font-style: normal;
+  --typography-label-small-letter-spacing: -0.8px;
+  --typography-label-small-line-height: 16.5px;
+  --typography-label-small-text-case: none;
+
+/* ────────────────────────────────────────────────────────────
+   EFFECTS — Box-shadow presets.
+   ──────────────────────────────────────────────────────────── */
+
+  --shadow-hard-shadow: 4px 6px 8px 0px #00000052;
+  --shadow-soft-shadows: 2px 2px 20px 0px #0000001f;
+  --shadow-medium-shadow: 2px 4px 6px 0px #00000047;
+}

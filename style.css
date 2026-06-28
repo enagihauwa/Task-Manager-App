@@ -1,0 +1,532 @@
+/* ==================================================================
+   Task Manager — Component styles built on design-token CSS variables
+   ================================================================== */
+
+/* ------------------------------------------------------------------
+   Reset & base
+   ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--typography-body-large-font-family);
+  font-size: var(--typography-body-large-font-size);
+  font-weight: var(--typography-body-large-font-weight);
+  line-height: var(--typography-body-large-line-height);
+  letter-spacing: var(--typography-body-large-letter-spacing);
+  color: var(--clr-on-background);
+  background-color: var(--clr-surface-dim);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------------
+   Layout
+   ------------------------------------------------------------------ */
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: var(--spacing-2xl) var(--spacing-base);
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Card
+   ------------------------------------------------------------------ */
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  background-color: var(--clr-surface-container-lowest);
+  border-radius: var(--spacing-md);
+  box-shadow: var(--shadow-soft-shadows);
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .card {
+    border-radius: var(--spacing-sm);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Card header
+   ------------------------------------------------------------------ */
+
+.card__header {
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-base);
+  background-color: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-outline-variant);
+}
+
+.card__title {
+  font-size: var(--typography-headline-small-font-size);
+  font-weight: var(--typography-headline-small-font-weight);
+  line-height: var(--typography-headline-small-line-height);
+  letter-spacing: var(--typography-headline-small-letter-spacing);
+  color: var(--clr-on-surface);
+  margin-bottom: var(--spacing-base);
+}
+
+/* ------------------------------------------------------------------
+   Statistics
+   ------------------------------------------------------------------ */
+
+.stats {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.stats__value {
+  font-size: var(--typography-title-medium-font-size);
+  font-weight: var(--typography-title-medium-font-weight);
+  line-height: var(--typography-title-medium-line-height);
+  letter-spacing: var(--typography-title-medium-letter-spacing);
+  transition: transform 0.2s ease;
+}
+
+.stats__value--total {
+  color: var(--clr-primary);
+}
+
+.stats__value--done {
+  color: var(--clr-tertiary);
+}
+
+.stats__value--remaining {
+  color: var(--clr-on-surface);
+}
+
+.stats__label {
+  font-size: var(--typography-label-medium-font-size);
+  font-weight: var(--typography-label-medium-font-weight);
+  line-height: var(--typography-label-medium-line-height);
+  letter-spacing: var(--typography-label-medium-letter-spacing);
+  color: var(--clr-on-surface-variant);
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------
+   Add-task form
+   ------------------------------------------------------------------ */
+
+.add-form {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-base) var(--spacing-lg);
+  background-color: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-outline-variant);
+}
+
+.add-form__input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--typography-body-large-font-family);
+  font-size: var(--typography-body-large-font-size);
+  font-weight: var(--typography-body-large-font-weight);
+  line-height: var(--typography-body-large-line-height);
+  color: var(--clr-on-surface);
+  background-color: var(--clr-surface-container-low);
+  border: 1px solid var(--clr-outline-variant);
+  border-radius: var(--spacing-xs);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-form__input::placeholder {
+  color: var(--clr-on-surface-variant);
+  opacity: 0.65;
+}
+
+.add-form__input:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px var(--clr-primary-container);
+}
+
+.add-form__btn {
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--typography-label-large-font-family);
+  font-size: var(--typography-label-large-font-size);
+  font-weight: var(--typography-label-large-font-weight);
+  line-height: var(--typography-label-large-line-height);
+  letter-spacing: var(--typography-label-large-letter-spacing);
+  color: var(--clr-on-primary);
+  background-color: var(--clr-primary);
+  border: none;
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.add-form__btn:hover {
+  background-color: var(--clr-on-primary-variant);
+  box-shadow: var(--shadow-medium-shadow);
+}
+
+.add-form__btn:active {
+  transform: scale(0.96);
+}
+
+.add-form__btn:focus-visible {
+  outline: 2px solid var(--clr-on-primary-variant);
+  outline-offset: 2px;
+}
+
+/* Ripple effect */
+.add-form__btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 10%, transparent 10%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0%;
+  opacity: 0;
+  transition: none;
+}
+
+.add-form__btn:active::after {
+  background-size: 400%;
+  opacity: 1;
+  transition: background-size 0.4s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .add-form {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Filter bar
+   ------------------------------------------------------------------ */
+
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--clr-surface-container);
+  border-bottom: 1px solid var(--clr-outline-variant);
+}
+
+.filter-bar__group {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.filter-bar__btn {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-family: var(--typography-label-medium-font-family);
+  font-size: var(--typography-label-medium-font-size);
+  font-weight: var(--typography-label-medium-font-weight);
+  line-height: var(--typography-label-medium-line-height);
+  letter-spacing: var(--typography-label-medium-letter-spacing);
+  color: var(--clr-on-surface-variant);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-bar__btn:hover {
+  color: var(--clr-on-surface);
+  background-color: var(--clr-surface-container-low);
+  border-color: var(--clr-outline-variant);
+}
+
+.filter-bar__btn.is-active {
+  color: var(--clr-on-primary);
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
+}
+
+.filter-bar__btn:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 2px;
+}
+
+.filter-bar__clear {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-family: var(--typography-label-medium-font-family);
+  font-size: var(--typography-label-medium-font-size);
+  font-weight: var(--typography-label-medium-font-weight);
+  line-height: var(--typography-label-medium-line-height);
+  letter-spacing: var(--typography-label-medium-letter-spacing);
+  color: var(--clr-on-error-container);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-bar__clear:hover {
+  background-color: var(--clr-error-container);
+  border-color: var(--clr-error);
+}
+
+.filter-bar__clear:focus-visible {
+  outline: 2px solid var(--clr-error);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Empty state
+   ------------------------------------------------------------------ */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-base);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+}
+
+.empty-state__icon {
+  width: 80px;
+  height: 80px;
+}
+
+.empty-state__svg {
+  width: 100%;
+  height: 100%;
+  color: var(--clr-on-surface-variant);
+  opacity: 0.5;
+}
+
+.empty-state__text {
+  font-size: var(--typography-body-medium-font-size);
+  font-weight: var(--typography-body-medium-font-weight);
+  line-height: var(--typography-body-medium-line-height);
+  letter-spacing: var(--typography-body-medium-letter-spacing);
+  color: var(--clr-on-surface-variant);
+}
+
+/* ------------------------------------------------------------------
+   Task list
+   ------------------------------------------------------------------ */
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------------
+   Task item — base
+   ------------------------------------------------------------------ */
+
+.task-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--clr-outline-variant);
+  transition: background-color 0.2s ease, opacity 0.25s ease, padding 0.25s ease, max-height 0.25s ease;
+}
+
+.task-list__item:last-child {
+  border-bottom: none;
+}
+
+.task-list__item:hover {
+  background-color: var(--clr-surface-container-low);
+}
+
+/* ------------------------------------------------------------------
+   Task item — enter animation
+   ------------------------------------------------------------------ */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-enter {
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* ------------------------------------------------------------------
+   Task item — exit animation
+   ------------------------------------------------------------------ */
+
+.task-exit {
+  opacity: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  max-height: 0 !important;
+  border-color: transparent !important;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------
+   Task checkbox toggle
+   ------------------------------------------------------------------ */
+
+.task-list__toggle {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  border: 2px solid var(--clr-outline);
+  border-radius: 4px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.task-list__toggle::before {
+  content: "";
+  width: 10px;
+  height: 5px;
+  border: 2px solid transparent;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg) translateY(-1px);
+  transition: border-color 0.2s ease;
+}
+
+.task-list__toggle:hover {
+  border-color: var(--clr-primary);
+  transform: scale(1.1);
+}
+
+.task-list__toggle:checked {
+  border-color: var(--clr-primary);
+  background-color: var(--clr-primary);
+}
+
+.task-list__toggle:checked::before {
+  border-color: var(--clr-on-primary);
+}
+
+.task-list__toggle:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------
+   Task text
+   ------------------------------------------------------------------ */
+
+.task-list__text {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--typography-body-large-font-size);
+  font-weight: var(--typography-body-large-font-weight);
+  line-height: var(--typography-body-large-line-height);
+  color: var(--clr-on-surface);
+  word-break: break-word;
+  cursor: pointer;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease, opacity 0.25s ease;
+}
+
+.task-list__item--done .task-list__text {
+  color: var(--clr-on-surface-variant);
+  text-decoration: line-through;
+  text-decoration-color: var(--clr-outline);
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------------------
+   Delete button
+   ------------------------------------------------------------------ */
+
+.task-list__delete {
+  flex-shrink: 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-family: var(--typography-label-large-font-family);
+  font-size: var(--typography-label-large-font-size);
+  font-weight: var(--typography-label-large-font-weight);
+  line-height: var(--typography-label-large-line-height);
+  letter-spacing: var(--typography-label-large-letter-spacing);
+  color: var(--clr-on-error-container);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.task-list__item:hover .task-list__delete,
+.task-list__item:focus-within .task-list__delete {
+  opacity: 1;
+}
+
+.task-list__delete:hover,
+.task-list__delete:focus-visible {
+  opacity: 1;
+  background-color: var(--clr-error-container);
+  border-color: var(--clr-error);
+  color: var(--clr-on-error-container);
+}
+
+.task-list__delete:focus-visible {
+  outline: 2px solid var(--clr-error);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .task-list__delete {
+    opacity: 1;
+    border-color: var(--clr-outline-variant);
+  }
+}
